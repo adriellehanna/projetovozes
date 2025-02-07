@@ -7,20 +7,25 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <style>
     body {
-      background: #f8f9fa;
+      background: #f9f7f5;
       padding-top: 70px;
     }
-
     .form-check-input {
       accent-color: #000000; 
     }
+
+    .footer-img {
+   width: 180px; /* Ajuste o valor conforme desejado */
+   height: auto; /* Mantém a proporção da imagem */ 
+    }
+
 
   </style>
 </head>
 <body>
   <!-- Navbar fixa -->
   <nav class="navbar navbar-expand-lg fixed-top" style="background-color: transparent !important;">
-    <a class="navbar-brand text-dark" href="index.html"><img src="img/logo.png" width="60"></a>
+    <a class="navbar-brand text-dark" href="index.html"><img src="img/logo.png" width="60" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
@@ -38,47 +43,65 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="sobre.html">Sobre</a>
-          </li>
+        </li>
       </ul>
     </div>
   </nav>
 
-  <!-- Conteúdo principal -->
+<!-- Conteúdo principal -->
+<div class="container">
+  <h2 class="my-4">Formulário de Denúncia</h2>
+  <!-- O atributo action aponta para um script que deverá processar o formulário (ex.: enviar_denuncia.php) -->
+  <form action="enviar_denuncia.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="nome">Nome (opcional):</label>
+      <input type="text" class="form-control form-control-sm" id="nome" name="nome" placeholder="Seu nome (opcional)">
+    </div>
+    <div class="form-group">
+      <label for="email">Email (opcional):</label>
+      <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Seu email (opcional)">
+    </div>
+    <div class="form-group">
+      <label for="data">Data do Incidente:</label>
+      <input type="date" class="form-control form-control-sm" id="data" name="data">
+    </div>
+    <div class="form-group">
+      <label for="local">Local do Incidente:</label>
+      <input type="text" class="form-control form-control-sm" id="local" name="local" placeholder="Cidade, Estado, etc.">
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descrição do Incidente:</label>
+      <textarea class="form-control form-control-sm" id="descricao" name="descricao" rows="3" placeholder="Descreva o que aconteceu"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="evidencia">Anexar Evidência (opcional):</label>
+      <input type="file" class="form-control-file" id="evidencia" name="evidencia">
+    </div>
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" id="anonimo" name="anonimo" value="true">
+      <label class="form-check-label" for="anonimo">Desejo manter o anonimato</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm" style="background-color: black;">Enviar Denúncia</button>
+  </form>
+</div>
+
+
+  <!-- Footer -->
+<footer class="py-4 mt-5" style="background-color: transparent;">
   <div class="container">
-    <h2 class="my-4">Formulário de Denúncia</h2>
-    <!-- O atributo action aponta para um script que deverá processar o formulário (ex.: enviar_denuncia.php) -->
-    <form action="enviar_denuncia.php" method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="nome">Nome (opcional):</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome (opcional)">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <img src="img/abglt203.png" alt="Imagem 1" class="img-fluid footer-img">
       </div>
-      <div class="form-group">
-        <label for="email">Email (opcional):</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Seu email (opcional)">
+      <div class="col-md-4 d-flex justify-content-center align-items-center" style="min-height: 130px;">
+        <img src="img/ministerio.png" alt="Imagem 2" class="img-fluid footer-img">
+      </div>      
+      <div class="col-md-4">
+        <img src="img/casa1.png" alt="Imagem 3" class="img-fluid footer-img">
       </div>
-      <div class="form-group">
-        <label for="data">Data do Incidente:</label>
-        <input type="date" class="form-control" id="data" name="data">
-      </div>
-      <div class="form-group">
-        <label for="local">Local do Incidente:</label>
-        <input type="text" class="form-control" id="local" name="local" placeholder="Cidade, Estado, etc.">
-      </div>
-      <div class="form-group">
-        <label for="descricao">Descrição do Incidente:</label>
-        <textarea class="form-control" id="descricao" name="descricao" rows="5" placeholder="Descreva o que aconteceu"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="evidencia">Anexar Evidência (opcional):</label>
-        <input type="file" class="form-control-file" id="evidencia" name="evidencia">
-      </div>
-      <div class="form-check mb-3">
-        <input type="checkbox" class="form-check-input" id="anonimo" name="anonimo" value="true">
-        <label class="form-check-label" for="anonimo">Desejo manter o anonimato</label>
-      </div>
-      <button type="submit" class="btn btn-primary" style="background-color: black;">Enviar Denúncia</button>
-    </form>
+    </div>
   </div>
+</footer>
 
   <!-- Scripts do Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -86,5 +109,3 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
